@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rentacarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="500" />
+    <Property Name="password" Type="varchar" MaxLength="500" />
+    <Property Name="name" Type="varchar" MaxLength="500" />
+    <Property Name="token" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="announcements">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar(max)" />
+    <Property Name="description" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="cars">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand" Type="varchar" MaxLength="100" />
+    <Property Name="model" Type="varchar" MaxLength="100" />
+    <Property Name="color" Type="varchar" MaxLength="100" />
+    <Property Name="km" Type="int" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="period" Type="varchar" MaxLength="50" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+    <Property Name="img" Type="varchar(max)" />
+    <Property Name="modelyear" Type="varchar" MaxLength="50" />
+    <Property Name="rank" Type="int" />
+  </EntityType>
+  <EntityType Name="reservations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="reservationtime" Type="varchar" MaxLength="50" />
+    <Property Name="cars" Type="varchar" MaxLength="50" />
+    <Property Name="isclose" Type="bit" />
+    <Property Name="reservationnot" Type="varchar(max)" />
+    <Property Name="reservationadminnot" Type="varchar(max)" />
+    <Property Name="reservationcode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="rentacarModelStoreContainer">
+    <EntitySet Name="admins" EntityType="Self.admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="announcements" EntityType="Self.announcements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cars" EntityType="Self.cars" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reservations" EntityType="Self.reservations" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
